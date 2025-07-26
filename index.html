@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome - Lorelei & Orpheus</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      background-color: #dbeafe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 3em;
+      color: #3b82f6;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #64748b;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .login-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: 'Caveat', cursive;
+      font-size: 1em;
+    }
+    button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Caveat', cursive;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Memory Jar</h1>
+  <p>Pour all your thoughts here baby^^ Happy 2nd month!!</p>
+  <div class="login-box">
+    <input type="text" id="username" placeholder="Enter Name" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="login()">Log In</button>
+  </div>
+
+  <script>
+  function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if (user === 'lei_and_orfee' && pass === '052625') {
+      // Save login flag in sessionStorage
+    localStorage.setItem('loggedIn', 'true');
+
+
+      // Create a new session ID to track what was read this login
+      const sessionId = 'session_' + new Date().getTime();
+      sessionStorage.setItem('sessionId', sessionId);
+
+      // Redirect to the jar
+      window.location.href = 'jar.html';
+    } else {
+      alert('Incorrect name or password!');
+    }
+  }
+</script>
+
+</body>
+</html>
